@@ -1,15 +1,11 @@
-import express from "express";
-import morgan  from "morgan";
-import path from "path";
-import {fileURLToPath} from "url";
+const express = require("express");
+const morgan  = require("morgan");
+const path = require('path')
 
 const app = express()
 const PORT = process.env.PORT || 5000;
 
 // middleware 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 app.use(morgan('dev'))
 app.use(express.json(path.join(__dirname, "Public")));
 
